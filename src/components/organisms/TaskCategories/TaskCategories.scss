@@ -1,0 +1,13 @@
+@use '@scss/variables.scss' as *;
+
+.task-categories {
+	height: 100%; //without this bottom menu will be upstairs
+	display: grid;
+	grid-auto-flow: column;
+	grid-template-columns: repeat(3, (100%));
+	gap: 0 10vw;
+	overflow-x: scroll;
+	overscroll-behavior-x: contain;
+	scroll-snap-type: x mandatory;
+	margin: 0 $screen-padding;
+}

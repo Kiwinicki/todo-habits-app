@@ -1,0 +1,47 @@
+@use '@scss/variables.scss' as *;
+
+.task-form {
+	transition: opacity 0.35s ease-in-out, max-height 0.35s ease-in-out,
+		visibility 0.35s ease-in-out;
+	overflow: hidden;
+	max-height: 100vh; // litle hack to make transition work (max-heigth must be bigger than it really could ever be)
+	&--hidden {
+		visibility: hidden;
+		opacity: 0;
+		max-height: 0;
+	}
+	&--light :not(.button__reset) {
+		color: $white-color;
+		border-color: $white-color;
+		.label--as-btn--checked {
+			background-color: $white-color;
+			color: $darker-color;
+		}
+	}
+	&--column &__inner {
+		flex-direction: column;
+		gap: 2vh;
+		.label--as-btn:last-of-type {
+			margin-bottom: 3vh;
+		}
+	}
+	&__title {
+		display: block;
+		margin-bottom: 3vh;
+	}
+	&__inner {
+		display: flex;
+		justify-content: center;
+		flex-wrap: wrap;
+		gap: 4vh 5%;
+		& * {
+			flex: 0 1 30%;
+		}
+	}
+	&__options-btn {
+		color: $white-color;
+		font-size: 1rem;
+		margin: 0 1rem;
+		padding: 10px;
+	}
+}

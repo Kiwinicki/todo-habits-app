@@ -1,0 +1,60 @@
+@use '@scss/variables.scss' as *;
+@use 'sass:color';
+
+$stretch-width: 35vw;
+$btn-size: 4.5rem;
+
+.categories-nav {
+	display: flex;
+	position: relative;
+	bottom: 0;
+	padding: 0 $screen-padding $screen-padding;
+	z-index: 10;
+	justify-content: space-between;
+	&::before {
+		position: absolute;
+		left: -#{$stretch-width};
+		width: (100vw + 2 * $stretch-width);
+		height: calc(200% + 2 * #{$screen-padding});
+		transform: translateY(calc(2 * -#{$screen-padding}));
+		border-radius: 50%;
+		background: $main-color;
+		border: 1px solid color.adjust($main-color, $lightness: -10%);
+		content: '';
+		z-index: -1;
+	}
+	&__btn {
+		position: relative;
+		background: transparent;
+		border: none;
+		width: $btn-size;
+		height: $btn-size;
+		cursor: pointer;
+		flex-direction: column;
+		&::before {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 0px;
+			height: 0px;
+			transform: translate(-50%, -50%);
+			transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
+			border-radius: 50%;
+			background: $darker-color;
+			content: '';
+			z-index: -1;
+		}
+		&--active {
+			color: $white-color;
+			&::before {
+				width: 100%;
+				height: 100%;
+			}
+		}
+	}
+	&__icon {
+		margin-bottom: 1vw;
+		width: min(8vw, 1.7rem);
+		height: min(8vw, 1.7rem);
+	}
+}

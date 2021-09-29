@@ -1,0 +1,19 @@
+@use '@scss/variables.scss' as *;
+
+$padding-bottom: 5vh;
+
+.page-header {
+	position: relative;
+	padding: $screen-padding $screen-padding $padding-bottom;
+	&::before {
+		content: '';
+		position: absolute;
+		left: 0;
+		width: 120vw;
+		height: 200%;
+		background: $main-color;
+		border-radius: 50% / 60px;
+		z-index: -1;
+		transform: translate(-10vw, -50%);
+	}
+}

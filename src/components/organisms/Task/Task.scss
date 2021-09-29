@@ -1,0 +1,66 @@
+@use '@scss/variables.scss' as *;
+
+.task {
+	display: grid;
+	grid-template-columns: 17% 1fr 17%;
+	grid-template-areas: 'btn-left info btn-right';
+
+	margin-bottom: 0.5rem;
+	border-radius: $main-border-rad;
+	background-color: $darker-color;
+	color: $white-color;
+	&__btn {
+		cursor: pointer;
+		border: none;
+		background: $main-color;
+		padding: 0 max(4vw, 5%);
+		&--left {
+			grid-area: btn-left;
+			border-radius: $main-border-rad 0 0 $main-border-rad;
+		}
+		&--right {
+			grid-area: btn-right;
+			border-radius: 0 $main-border-rad $main-border-rad 0;
+		}
+	}
+	&__info {
+		grid-area: info;
+		padding: 4vw;
+		text-align: center;
+		flex-grow: 2;
+	}
+	&__title {
+		font-weight: 400;
+		margin-bottom: 1vh;
+	}
+	&__icon {
+		width: 1.3rem;
+		height: 1.3rem;
+		color: $darker-color;
+	}
+	&__options-bar {
+		display: flex;
+		justify-content: center;
+		max-height: 0;
+		visibility: hidden;
+		transition: 0.25s;
+		opacity: 0;
+		&--expanded {
+			max-height: 100vh;
+			visibility: visible;
+			opacity: 1;
+			margin-top: 2vh;
+		}
+	}
+	&__remove-btn,
+	&__edit-btn {
+		background: transparent;
+		border: none;
+		color: $white-color;
+		& svg {
+			width: 1rem;
+			height: 1rem;
+			margin: 0 5vw;
+		}
+	}
+}

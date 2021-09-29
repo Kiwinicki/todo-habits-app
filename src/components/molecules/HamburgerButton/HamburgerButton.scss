@@ -1,0 +1,9 @@
+@use '@atoms/Button/Button' as *;
+
+.hamburger-btn {
+	&__icon {
+		width: 1.5rem;
+		height: 1.5rem;
+		transform: scale(1.5);
+	}
+}

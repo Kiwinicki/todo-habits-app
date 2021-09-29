@@ -1,0 +1,19 @@
+@use '@scss/variables.scss' as *;
+
+.input-text {
+	background: transparent;
+	border-radius: $main-border-rad;
+	border: 2px solid $darker-color;
+	width: 100%;
+	padding: 0.3rem;
+	&--light {
+		border-color: $white-color;
+		color: $white-color;
+	}
+}
+
+.input--as-btn {
+	opacity: 0;
+	position: relative;
+	width: 1px;
+}

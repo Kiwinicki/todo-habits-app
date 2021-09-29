@@ -1,0 +1,35 @@
+@use '@scss/variables.scss' as *;
+
+$search-height: 1.5rem;
+$transition-delay: 0.25s;
+
+.search-task {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	padding: $screen-padding;
+	transition: all $transition-delay ease-in-out;
+	gap: 5vw;
+	&--hidden {
+		padding: 0 $screen-padding $screen-padding;
+		transform: translateY(-100%);
+		margin: #{1.5 * $search-height} 0 -#{2 * $search-height};
+	}
+	&__input {
+		transition: all $transition-delay ease-in-out;
+		&--hidden {
+			opacity: 0;
+			visibility: hidden;
+			transform: translateY(-100%);
+		}
+	}
+
+	&__search-btn {
+		position: relative;
+		transition: $transition-delay ease-in-out;
+	}
+	&__search-icon {
+		font-size: $search-height;
+		color: white;
+	}
+}

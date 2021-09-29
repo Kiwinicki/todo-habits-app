@@ -1,0 +1,13 @@
+@use '@scss/variables.scss' as *;
+
+.progress-bar {
+	height: 10px;
+	border-radius: 5px;
+	background: rgba(0, 0, 0, 0.35);
+	&__inner {
+		height: 100%;
+		border-radius: 5px;
+		background: $darker-color;
+		transition: 0.3s;
+	}
+}

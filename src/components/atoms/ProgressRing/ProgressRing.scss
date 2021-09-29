@@ -1,0 +1,27 @@
+@use '@scss/variables.scss' as *;
+
+.progress-ring {
+	transform: rotate(-90deg);
+	transform-origin: 50% 50%;
+	stroke: $darker-color;
+	circle {
+		stroke-linecap: round;
+	}
+	&__circle {
+		fill: transparent;
+		&--bg {
+			stroke: rgba(0, 0, 0, 0.35);
+		}
+		&--indicator {
+			transition: 0.3s;
+		}
+	}
+	&__text {
+		fill: $darker-color;
+		transform: rotate(90deg) translateY(12.5%);
+		transform-origin: 50% 50%;
+		font-size: 1.5rem;
+		font-weight: 800;
+		text-anchor: middle;
+	}
+}

@@ -1,0 +1,82 @@
+@use '@scss/variables.scss' as *;
+@use 'sass:color';
+
+$transition-delay: 0.2s;
+
+.side-menu {
+	display: flex;
+	position: absolute;
+	left: 0;
+	transition: visibility $transition-delay ease-in-out;
+	color: $white-color;
+	visibility: hidden;
+	z-index: 1000;
+	&--open {
+		visibility: visible;
+	}
+	&__bg {
+		position: absolute;
+		width: 100vw;
+		height: 100%;
+		transition: opacity $transition-delay ease-in-out;
+		background: rgba(0, 0, 0, 0.35);
+		backdrop-filter: blur(10px);
+		&--open {
+			opacity: 1;
+		}
+	}
+	&__app-menu {
+		display: flex;
+		min-width: 70vw;
+		height: 100%;
+		height: 100vh;
+		padding: 1rem;
+		transform: translateX(-100%);
+		transition: transform $transition-delay ease-in-out;
+		background: $darker-color;
+		font-size: 1.3rem;
+		flex-direction: column;
+		&--open {
+			transform: translateX(0);
+		}
+	}
+	&__list {
+		list-style: none;
+	}
+	&__item {
+		width: max-content;
+		padding: 3vh 0;
+		&::after {
+			display: block;
+			width: 0px;
+			height: 2px;
+			transition: width $transition-delay ease-in-out;
+			background: $main-color;
+			content: '';
+		}
+		&:hover::after {
+			width: 100%;
+		}
+	}
+	&__link {
+		text-decoration: none;
+		&:hover,
+		&:active {
+			color: color.adjust($white-color, $lightness: -30%);
+		}
+		&:link,
+		&:visited {
+			color: $white-color;
+		}
+	}
+	&__close-menu-btn {
+		width: 1.5rem;
+		height: 1.5rem;
+		color: $white-color;
+		cursor: pointer;
+		align-self: flex-end;
+	}
+	&__close-icon {
+		font-size: 1.5rem;
+	}
+}

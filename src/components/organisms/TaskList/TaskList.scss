@@ -1,0 +1,12 @@
+@use '@scss/variables.scss' as *;
+
+.task-list {
+	padding: 0 0 4vh; // 4vh dla zakrzywienia
+	overflow-y: scroll;
+	scroll-snap-align: start;
+	scroll-snap-stop: always;
+	&__no-tasks {
+		text-align: center;
+		color: $white-color;
+	}
+}

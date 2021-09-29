@@ -1,0 +1,15 @@
+@use '@scss/variables.scss' as *;
+@use '@atoms/Button/Button.scss' as *;
+
+.label {
+	&--as-btn {
+		@extend .button;
+		display: inline-block;
+		text-align: center;
+		transition: 0.25s;
+		&--checked {
+			background-color: $darker-color;
+			color: $main-color;
+		}
+	}
+}

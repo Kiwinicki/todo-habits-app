@@ -1,0 +1,51 @@
+@use '@scss/variables.scss' as *;
+
+$first-row-size: 2rem;
+$second-row-size: calc(32px + 0.65rem);
+$row-gap: 10px;
+$padding-bottom: 5vh; /* magic number */
+
+.home-header {
+	display: grid;
+	grid-template-columns: 1.5rem 1fr 64px;
+	grid-template-rows: $first-row-size $second-row-size auto;
+	gap: $row-gap 15px;
+	grid-template-areas: 'menu-btn player-name lvl' 'hp hp lvl' 'form form form';
+	&__menu-btn {
+		grid-area: menu-btn;
+	}
+	&__player-name {
+		font-size: 1.5rem;
+		font-weight: 600;
+		grid-area: player-name;
+	}
+	&__lvl-progress {
+		grid-area: lvl;
+		justify-self: end;
+	}
+	&__hp-bar {
+		grid-area: hp;
+	}
+	&__label {
+		font-size: 0.7rem;
+	}
+	&__add-task-btn {
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		width: 2.3rem;
+		transform: translate(-50%, 12.5%);
+		user-select: none;
+		transition: opacity 0.3s ease-in-out;
+		&--hidden {
+			opacity: 0;
+			visibility: hidden;
+		}
+	}
+	&__plus-icon {
+		font-size: 4.3rem;
+	}
+	&__form {
+		grid-area: form;
+	}
+}

@@ -1,13 +1,18 @@
-.template-header {
-	display: grid;
-	grid-template-columns: 1fr 75% 1fr;
+@use '@scss/variables.scss' as *;
+
+.template {
+	&__header {
+		display: grid;
+		grid-template-columns: 1fr 75% 1fr;
+	}
 	&__menu-btn {
 		justify-self: start;
 	}
 	&__page-title {
-		font-size: 1.5rem;
-		font-weight: 600;
+		font-size: 1.7rem;
+		font-weight: 700;
 		text-align: center;
+		color: $darker-color;
 	}
 }
 

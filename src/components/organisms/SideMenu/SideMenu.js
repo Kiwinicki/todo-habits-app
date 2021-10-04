@@ -47,7 +47,7 @@ const SideMenu = () => {
 					</li> */}
 					<li className="side-menu__item" onClick={() => toggleMenu()}>
 						<Link to="/about" className="side-menu__link">
-							About author
+							About app
 						</Link>
 					</li>
 				</ul>

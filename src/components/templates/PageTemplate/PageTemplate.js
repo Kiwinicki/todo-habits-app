@@ -11,11 +11,11 @@ const PageTemplate = ({
 }) => {
 	return (
 		<>
-			<PageHeader addClass={`template-header ${addHeaderClass}`}>
-				<HamburgerButton addClass="template-header__menu-btn" />
-				<h1 className="template-header__page-title">{pageTitle}</h1>
+			<PageHeader addClass={`template__header ${addHeaderClass}`}>
+				<HamburgerButton addClass="template__menu-btn" />
+				<h1 className="template__page-title">{pageTitle}</h1>
 			</PageHeader>
-			<PageMain addClass={`template-content ${addMainClass}`}>
+			<PageMain addClass={`template__content ${addMainClass}`}>
 				{mainContent}
 			</PageMain>
 		</>

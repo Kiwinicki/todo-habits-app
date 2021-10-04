@@ -1,0 +1,20 @@
+@use '@scss/variables.scss' as *;
+
+.about-page {
+	&__heading {
+		&:not(:first-of-type) {
+			margin-top: $screen-padding;
+		}
+	}
+	&__list {
+		list-style-type: none;
+		display: block;
+		text-align: start;
+		.about-page__list {
+			padding: 0 20px;
+		}
+	}
+	&__list-item {
+		margin: 0.5rem 0;
+	}
+}

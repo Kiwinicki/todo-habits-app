@@ -43,24 +43,24 @@ function StatsPage() {
 			pageTitle="Statistics"
 			mainContent={
 				<>
-					<h2 className="stats-main__header">PLAYER</h2>
+					<h2 className="stats-page__heading">PLAYER</h2>
 					<p>Current level: {playerState.lvl}</p>
 					<p>Current exp points: {playerState.exp}</p>
 					<p>All time exp points: {allEarnedExp}</p>
-					<h2 className="stats-main__header">TASKS</h2>
+					<h2 className="stats-page__heading">TASKS</h2>
 					{sum !== 0 ? (
 						<>
 							<PieChart
-								addClass="stats-main__pie-chart"
+								addClass="stats-page__pie-chart"
 								chartSlices={[
 									{ color: 'green', perc: successPerc },
 									{ color: 'red', perc: failPerc },
 								]}
 							/>
-							<p className="stats-main__label">
-								<span className="stats-main__legend stats-main__legend--red"></span>
+							<p className="stats-page__label">
+								<span className="stats-page__legend stats-page__legend--red"></span>
 								failed tasks ({failPerc.toFixed()}%) /
-								<span className="stats-main__legend stats-main__legend--green"></span>
+								<span className="stats-page__legend stats-page__legend--green"></span>
 								successful tasks ({successPerc.toFixed()}%)
 							</p>
 						</>
@@ -73,7 +73,7 @@ function StatsPage() {
 					<p>Schedules: {schedulesState.length} tasks</p>
 					<p>Habits: {habitsState.length} tasks</p>
 
-					<h2 className="stats-main__header">DAYS STREAK</h2>
+					<h2 className="stats-page__heading">DAYS STREAK</h2>
 					<p>
 						current days streak: {LCState[LOCAL_STORAGE_REDUCER.DAYS_STREAK]}{' '}
 						days

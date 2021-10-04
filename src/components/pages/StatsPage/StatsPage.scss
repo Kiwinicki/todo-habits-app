@@ -1,0 +1,29 @@
+@use '@scss/variables.scss' as *;
+
+.stats-page {
+	&__header {
+		font-size: 1.75rem;
+		&:not(:first-of-type) {
+			margin-top: $screen-padding;
+		}
+	}
+	&__pie-chart {
+		margin: $screen-padding 0;
+	}
+	&__label {
+		margin: 0 0 $screen-padding;
+	}
+	&__legend {
+		display: inline-block;
+		width: 0.75rem;
+		height: 0.75rem;
+		margin: 0 0.5rem;
+		background: #000;
+		&--red {
+			background: red;
+		}
+		&--green {
+			background: green;
+		}
+	}
+}

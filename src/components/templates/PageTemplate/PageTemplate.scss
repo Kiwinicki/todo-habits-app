@@ -1,4 +1,4 @@
-.stats-header {
+.template-header {
 	display: grid;
 	grid-template-columns: 1fr 75% 1fr;
 	&__menu-btn {
@@ -10,3 +10,5 @@
 		text-align: center;
 	}
 }
+
+// .template-content {}

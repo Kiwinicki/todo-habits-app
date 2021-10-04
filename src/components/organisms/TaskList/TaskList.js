@@ -1,4 +1,4 @@
-import React, { forwardRef, useContext, useEffect } from 'react';
+import React, { forwardRef, useContext } from 'react';
 import filterTaskArr from '@utils/filterTaskArr';
 import { TasksContext } from '@contexts/TasksProvider';
 import Task from '@organisms/Task/Task';
@@ -20,12 +20,7 @@ const TaskList = forwardRef(({ taskType }, ref) => {
 						taskType={taskType}
 						task={task}
 						key={task.id}
-						dispatchTask={(type, action) => {
-							console.log(type, action, tasks);
-							dispatchTask(type, action);
-							localStorage.setItem(taskType, JSON.stringify(tasks));
-							console.log(type, action, tasks);
-						}}
+						dispatchTask={dispatchTask}
 					/>
 				))
 			) : (

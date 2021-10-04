@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { List, PlusLg } from 'react-bootstrap-icons';
+import { PlusLg } from 'react-bootstrap-icons';
 import { PlayerContext } from '@contexts/PlayerProvider';
 import { TasksContext } from '@contexts/TasksProvider';
 import Button from '@atoms/Button/Button';

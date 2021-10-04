@@ -10,9 +10,10 @@ import {
 } from 'react-bootstrap-icons';
 import {
 	TASK_TYPE,
+	COMPLITED_TASKS,
 	PLAYER_REDUCER,
 	TASK_REDUCER,
-	COMPLITED_TASKS,
+	LOCAL_STORAGE_REDUCER,
 } from '@utils/CONSTANTS';
 import { PlayerContext } from '@contexts/PlayerProvider';
 import { TasksContext } from '@contexts/TasksProvider';
@@ -21,17 +22,20 @@ import Button from '@atoms/Button/Button';
 import TaskForm from '@organisms/TaskForm/TaskForm';
 import './Task.scss';
 
-const Task = ({ taskType, task, dispatchTask }) => {
+const Task = ({
+	taskType,
+	task: { id, title, difficulty },
+	task,
+	dispatchTask,
+}) => {
 	const { TODO, SCHEDULE } = TASK_TYPE;
+	const { SET_COMPLITED_TASKS } = LOCAL_STORAGE_REDUCER;
 	const { FAIL, SUCCESS } = COMPLITED_TASKS;
-	const { id, title, difficulty } = task;
+	const { EDIT_TASK } = TASK_REDUCER;
 
 	const [playerState, dispatchPlayer] = useContext(PlayerContext);
 	const {
-		[TASK_REDUCER.SET_COMPLITED_TASKS]: [
-			complitedTasks,
-			dispatchComplitedTasks,
-		],
+		[SET_COMPLITED_TASKS]: [complitedTasks, dispatchComplitedTasks],
 	} = useContext(TasksContext);
 
 	const [isFormOpen, toggleForm] = useToggle(false);
@@ -67,7 +71,7 @@ const Task = ({ taskType, task, dispatchTask }) => {
 				handleClick={() => {
 					increaseEXP();
 					dispatchComplitedTasks({
-						type: TASK_REDUCER.SET_COMPLITED_TASKS,
+						type: SET_COMPLITED_TASKS,
 						value: SUCCESS,
 					});
 					if (taskType === TODO) {
@@ -110,7 +114,7 @@ const Task = ({ taskType, task, dispatchTask }) => {
 					handleSubmit={(task) => {
 						if (task.title !== '' && task.difficulty !== null) {
 							dispatchTask({
-								type: TASK_REDUCER.EDIT_TASK,
+								type: EDIT_TASK,
 								value: { ...task, id: id },
 							});
 						}
@@ -125,7 +129,7 @@ const Task = ({ taskType, task, dispatchTask }) => {
 					handleClick={() => {
 						reduceHP();
 						dispatchComplitedTasks({
-							type: TASK_REDUCER.SET_COMPLITED_TASKS,
+							type: SET_COMPLITED_TASKS,
 							value: FAIL,
 						});
 					}}

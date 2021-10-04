@@ -6,7 +6,7 @@ const StatsHeader = () => {
 	return (
 		<PageHeader addClass="stats-header">
 			<HamburgerButton addClass="stats-header__menu-btn" />
-			<h1 className="stats-header__page-title">Stats</h1>
+			<h1 className="stats-header__page-title">Statistics</h1>
 		</PageHeader>
 	);
 };

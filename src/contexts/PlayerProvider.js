@@ -1,5 +1,10 @@
 import React, { createContext, useReducer } from 'react';
-import { PLAYER_REDUCER, LVL, MAX_HP } from '@utils/CONSTANTS';
+import {
+	LOCAL_STORAGE_REDUCER,
+	PLAYER_REDUCER,
+	LVL,
+	MAX_HP,
+} from '@utils/CONSTANTS';
 
 const playerReducer = (state, action) => {
 	const { CHANGE_EXP, CHANGE_HP } = PLAYER_REDUCER;
@@ -43,7 +48,16 @@ export const PlayerContext = createContext([
 PlayerContext.displayName = 'PlayerContext';
 
 export const PlayerProvider = ({ children }) => {
-	const [playerState, dispatch] = useReducer(playerReducer, initPlayerState);
+	const [playerState, dispatch] = useReducer(
+		playerReducer,
+		JSON.parse(localStorage.getItem(LOCAL_STORAGE_REDUCER.PLAYER_DATA)) ||
+			initPlayerState
+	);
+
+	localStorage.setItem(
+		LOCAL_STORAGE_REDUCER.PLAYER_DATA,
+		JSON.stringify(playerState)
+	);
 
 	return (
 		<PlayerContext.Provider value={[playerState, dispatch]}>

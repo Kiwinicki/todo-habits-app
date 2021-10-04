@@ -35,7 +35,7 @@ const SideMenu = () => {
 							Statistic
 						</Link>
 					</li>
-					<li className="side-menu__item" onClick={() => toggleMenu()}>
+					{/* <li className="side-menu__item" onClick={() => toggleMenu()}>
 						<Link to="/rewards" className="side-menu__link">
 							Rewards
 						</Link>
@@ -44,7 +44,7 @@ const SideMenu = () => {
 						<Link to="/settings" className="side-menu__link">
 							Settings
 						</Link>
-					</li>
+					</li> */}
 					<li className="side-menu__item" onClick={() => toggleMenu()}>
 						<Link to="/about" className="side-menu__link">
 							About author
